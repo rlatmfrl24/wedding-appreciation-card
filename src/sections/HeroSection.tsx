@@ -9,6 +9,8 @@ type HeroSectionProps = {
   heroImageSizes?: string;
   heroAlt: string;
   dateText?: string;
+  heroScriptText?: string;
+  heroScriptSubtext?: string;
 };
 
 export function HeroSection({
@@ -19,6 +21,8 @@ export function HeroSection({
   heroImageSizes,
   heroAlt,
   dateText,
+  heroScriptText,
+  heroScriptSubtext,
 }: HeroSectionProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -43,6 +47,14 @@ export function HeroSection({
             onError={() => setIsLoaded(true)}
           />
           <div className={styles.overlay} aria-hidden="true" />
+          {heroScriptText ? (
+            <div className={styles.scriptWrap}>
+              <p className={styles.scriptText}>{heroScriptText}</p>
+              {heroScriptSubtext ? (
+                <p className={styles.scriptSubtext}>{heroScriptSubtext}</p>
+              ) : null}
+            </div>
+          ) : null}
         </div>
 
         <div className={styles.content}>

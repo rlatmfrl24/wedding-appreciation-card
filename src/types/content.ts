@@ -9,6 +9,8 @@ export type SiteContent = {
   names: string;
   title: string;
   dateText?: string;
+  heroScriptText?: string;
+  heroScriptSubtext?: string;
   messageHeading: string;
   messageParagraphs: string[];
   closingText: string;
