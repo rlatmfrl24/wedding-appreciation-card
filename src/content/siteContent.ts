@@ -5,7 +5,6 @@ export const siteContent: SiteContent = {
   title: "소중한 마음에 깊이 감사드립니다",
   dateText: "2026년 봄",
   heroScriptText: "Thank you for being with us",
-  heroScriptSubtext: "",
   messageHeading: "드리는 편지",
   messageParagraphs: [
     "저희 두 사람이 함께 걸어갈 새로운 시작의 날에 바쁘신 가운데 귀한 걸음으로 자리를 빛내 주시고, 따뜻한 축복과 마음을 전해 주신 모든 분들께 진심으로 감사드립니다.",

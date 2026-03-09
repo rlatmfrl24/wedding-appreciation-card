@@ -14,7 +14,6 @@ function App() {
         title={siteContent.title}
         dateText={siteContent.dateText}
         heroScriptText={siteContent.heroScriptText}
-        heroScriptSubtext={siteContent.heroScriptSubtext}
         heroImage={siteContent.heroImage.src}
         heroImageSrcSet={siteContent.heroImage.srcSet}
         heroImageSizes={siteContent.heroImage.sizes}

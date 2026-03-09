@@ -2,22 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap");
 
 @font-face {
-  font-family: "Cafe24Oneprettynight";
-  src: url("../assets/font/Cafe24Oneprettynight-v2.0.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "KOTRA_SONGEULSSI";
-  src: url("../assets/font/KOTRA_SONGEULSSI.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "AdelioDarmanto";
   src: url("../assets/font/Adelio Darmanto Font by Keithzo (7NTypes).otf")
     format("opentype");
@@ -45,22 +29,13 @@
 }
 
 :root {
-  --font-title: "KOTRA_SONGEULSSI", "MaruBuri", "Noto Serif KR", serif;
-  --font-letter: "Cafe24Oneprettynight", "Noto Serif KR", serif;
+  --font-title: "MaruBuri", "Noto Serif KR", serif;
+  --font-letter: "MaruBuri", "Noto Serif KR", serif;
   --font-romance: "AdelioDarmanto", "Times New Roman", serif;
-  --font-reading:
-    "Cafe24Oneprettynight", "Pretendard Variable", "Pretendard", "Noto Sans KR",
-    sans-serif;
+  --font-reading: "Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif;
   --font-body:
-    "Cafe24Oneprettynight", "Pretendard Variable", "Pretendard", "Noto Sans KR",
-    sans-serif;
-
-  --bg: #fff8f5;
-  --surface: rgba(255, 252, 251, 0.78);
-  --surface-strong: #fffaf8;
+    "Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif;
   --text-primary: #4b3c43;
-  --text-secondary: #7a6a71;
-  --accent: #f4b28d;
   --accent-orange: #f3bf9c;
   --accent-pink: #f3d5df;
   --accent-blue: #d7ecfa;
