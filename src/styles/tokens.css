@@ -2,6 +2,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap");
 
 @font-face {
+  font-family: "Cafe24Oneprettynight";
+  src: url("../assets/font/Cafe24Oneprettynight-v2.0.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KOTRA_SONGEULSSI";
+  src: url("../assets/font/KOTRA_SONGEULSSI.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "MaruBuri";
   src: url("https://cdn.jsdelivr.net/gh/fonts-archive/MaruBuri/MaruBuri-Regular.woff2")
     format("woff2");
@@ -20,10 +36,14 @@
 }
 
 :root {
-  --font-title: "MaruBuri", "Noto Serif KR", serif;
-  --font-letter: "Noto Serif KR", "MaruBuri", serif;
-  --font-reading: "Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif;
-  --font-body: "Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif;
+  --font-title: "KOTRA_SONGEULSSI", "MaruBuri", "Noto Serif KR", serif;
+  --font-letter: "Cafe24Oneprettynight", "Noto Serif KR", serif;
+  --font-reading:
+    "Cafe24Oneprettynight", "Pretendard Variable", "Pretendard", "Noto Sans KR",
+    sans-serif;
+  --font-body:
+    "Cafe24Oneprettynight", "Pretendard Variable", "Pretendard", "Noto Sans KR",
+    sans-serif;
 
   --bg: #fff8f5;
   --surface: rgba(255, 252, 251, 0.78);

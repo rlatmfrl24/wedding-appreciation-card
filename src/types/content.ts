@@ -9,7 +9,6 @@ export type SiteContent = {
   names: string;
   title: string;
   dateText?: string;
-  introText: string;
   messageHeading: string;
   messageParagraphs: string[];
   closingText: string;

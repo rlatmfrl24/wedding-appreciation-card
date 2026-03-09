@@ -4,7 +4,6 @@ import { RevealOnScroll } from "./components/RevealOnScroll";
 import { siteContent } from "./content/siteContent";
 import { ClosingNote } from "./sections/ClosingNote";
 import { HeroSection } from "./sections/HeroSection";
-import { IntroNote } from "./sections/IntroNote";
 import { MessageSection } from "./sections/MessageSection";
 
 function App() {
@@ -21,10 +20,6 @@ function App() {
       />
 
       <main className={styles.main}>
-        <RevealOnScroll delayMs={0}>
-          <IntroNote text={siteContent.introText} />
-        </RevealOnScroll>
-
         <RevealOnScroll delayMs={120}>
           <MessageSection
             heading={siteContent.messageHeading}

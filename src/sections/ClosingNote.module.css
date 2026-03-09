@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: clamp(1.6rem, 5vw, 2.4rem) clamp(1rem, 4vw, 1.6rem)
+  padding: clamp(0.8rem, 5vw, 0.8rem) clamp(1rem, 4vw, 1.6rem)
     clamp(0.8rem, 3vw, 1.4rem);
   text-align: center;
 }
@@ -39,7 +39,7 @@
   color: #7b5565;
   font-family: var(--font-letter);
   font-size: clamp(1.16rem, 4vw, 1.3rem);
-  font-weight: 500;
+  font-weight: 900;
   line-height: 1.78;
   letter-spacing: -0.01em;
 }
