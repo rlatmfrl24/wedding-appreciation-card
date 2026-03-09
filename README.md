@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# Wedding Appreciation Card
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite로 만든 감사 카드 페이지입니다.
 
-Currently, two official plugins are available:
+## Local Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Production Build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm build
 ```
+
+빌드 결과물은 `dist/`에 생성됩니다.
+
+## Cloudflare Pages Deployment
+
+이 프로젝트는 Cloudflare Pages용 `wrangler` 설정이 포함되어 있습니다.
+
+### 1. Cloudflare 로그인
+
+```bash
+pnpm exec wrangler login
+```
+
+### 2. Pages 프로젝트 생성
+
+처음 한 번만 실행하면 됩니다.
+
+```bash
+pnpm cf:project:create
+```
+
+다른 프로젝트명을 쓰고 싶으면 `wrangler.jsonc`의 `name` 값을 먼저 바꾸세요.
+
+### 3. 미리보기 실행
+
+Cloudflare Pages 환경으로 로컬 미리보기를 띄웁니다.
+
+```bash
+pnpm cf:preview
+```
+
+### 4. 배포
+
+```bash
+pnpm cf:deploy
+```
+
+배포가 끝나면 `https://<project-name>.pages.dev` 형태의 URL이 발급됩니다.
+
+## Git Integration
+
+Cloudflare 대시보드에서 GitHub 저장소를 연결해서 배포해도 됩니다. 그 경우 설정은 아래처럼 맞추면 됩니다.
+
+- Build command: `pnpm build`
+- Build output directory: `dist`
+- Root directory: `/`
+
+Node는 `.node-version` 기준으로 22 계열을 사용하도록 맞춰 두었습니다.
