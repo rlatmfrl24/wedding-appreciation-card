@@ -7,12 +7,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "deploy": "wrangler pages deploy dist --project-name wedding-appreciation-card",
+    "deploy": "wrangler deploy",
     "lint": "eslint .",
     "preview": "vite preview",
-    "cf:project:create": "wrangler pages project create wedding-appreciation-card --production-branch master",
-    "cf:preview": "pnpm run build && wrangler pages dev",
-    "cf:deploy": "pnpm run build && wrangler pages deploy"
+    "worker:preview": "pnpm run build && wrangler dev"
   },
   "dependencies": {
     "react": "^19.2.0",

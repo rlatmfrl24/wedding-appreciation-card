@@ -17,66 +17,35 @@ pnpm build
 
 빌드 결과물은 `dist/`에 생성됩니다.
 
-## Cloudflare Pages Deployment
+## Cloudflare Worker Deployment
 
-이 프로젝트는 Cloudflare Pages용 `wrangler` 설정이 포함되어 있습니다.
+이 프로젝트는 Cloudflare Worker의 정적 자산 배포 방식으로 설정되어 있습니다. `wrangler.jsonc`에서 `dist/`를 Worker assets 디렉터리로 지정해 두었기 때문에 Worker 엔트리 파일 없이도 `wrangler deploy`가 동작합니다.
 
-### 1. Cloudflare 로그인
-
-```bash
-pnpm exec wrangler login
-```
-
-### 2. Pages 프로젝트 생성
-
-처음 한 번만 실행하면 됩니다.
+### 로컬에서 Worker 방식으로 미리보기
 
 ```bash
-pnpm cf:project:create
+pnpm run worker:preview
 ```
 
-다른 프로젝트명을 쓰고 싶으면 `wrangler.jsonc`의 `name` 값을 먼저 바꾸세요.
-
-### 3. 미리보기 실행
-
-Cloudflare Pages 환경으로 로컬 미리보기를 띄웁니다.
+### 로컬에서 실제 배포
 
 ```bash
-pnpm cf:preview
+pnpm build
+pnpm run deploy
 ```
 
-### 4. 배포
+### Cloudflare 대시보드 설정
 
-```bash
-pnpm cf:deploy
-```
-
-배포가 끝나면 `https://<project-name>.pages.dev` 형태의 URL이 발급됩니다.
-
-## Git Integration
-
-Cloudflare 대시보드에서 GitHub 저장소를 연결해서 배포해도 됩니다. 그 경우 설정은 아래처럼 맞추면 됩니다.
-
-- Build command: `pnpm build`
-- Build output directory: `dist`
-- Root directory: `/`
-- Deploy command: 비워 두기
-
-`npx wrangler deploy`는 Workers 배포 명령이라 Pages 프로젝트에서는 쓰면 안 됩니다. 배포 로그에 `Executing user deploy command: npx wrangler deploy`가 보이면 Cloudflare 설정에서 해당 값을 제거하세요.
-
-만약 현재 Cloudflare UI가 `Deploy command`를 비울 수 없게 되어 있다면, 그 프로젝트는 Pages Git integration이 아니라 Workers Builds로 연결된 상태입니다. 이 경우에는 아래처럼 바꾸면 됩니다.
+Workers Builds 화면이라면 아래처럼 맞추면 됩니다.
 
 - Build command: `pnpm build`
 - Deploy command: `pnpm run deploy`
 
-Pages 전용 Git integration 화면에서는 원래 `Deploy command` 항목이 없습니다. 장기적으로는 Pages 프로젝트로 새로 연결하는 편이 더 깔끔합니다.
+이 설정이면 Cloudflare가 먼저 `dist/`를 만들고, 이어서 `wrangler deploy`가 `dist/`를 Worker assets로 업로드합니다.
 
-## Direct Upload Or CI
+배포가 완료되면 기본적으로 `https://wedding-appreciation-card.<your-subdomain>.workers.dev` 형태의 주소로 열립니다.
 
-Git 연동 대신 직접 업로드하거나 CI에서 배포할 때만 아래 명령을 사용합니다.
+## Notes
 
-```bash
-pnpm exec wrangler pages deploy dist --project-name wedding-appreciation-card
-```
-
-Node는 `.node-version` 기준으로 22 계열을 사용하도록 맞춰 두었습니다.
+- Node는 `.node-version` 기준으로 22 계열을 사용하도록 맞춰 두었습니다.
+- 커스텀 도메인이나 route를 붙이고 싶으면 나중에 `wrangler.jsonc`에 `routes` 또는 `domains`를 추가하면 됩니다.
