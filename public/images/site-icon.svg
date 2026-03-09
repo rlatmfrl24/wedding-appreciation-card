@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Wedding appreciation icon">
+  <defs>
+    <linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4ddc6" />
+      <stop offset="100%" stop-color="#b68a6a" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#fff9f1" />
+  <circle cx="24" cy="30" r="10" fill="url(#a)" opacity="0.8" />
+  <circle cx="40" cy="30" r="10" fill="url(#a)" opacity="0.8" />
+  <path d="M32 46C26 40 16 34 16 24a8 8 0 0 1 16 0 8 8 0 0 1 16 0c0 10-10 16-16 22z" fill="#9e6f4d" />
+</svg>
