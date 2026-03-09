@@ -104,27 +104,6 @@
   overflow: visible;
 }
 
-.scriptWrap::before {
-  content: "";
-  position: absolute;
-  inset: auto;
-  border-radius: 999px;
-  pointer-events: none;
-  width: clamp(16rem, 46vw, 25rem);
-  height: clamp(8rem, 22vw, 12rem);
-  top: 50%;
-  left: 50%;
-  background: radial-gradient(
-    circle,
-      rgba(72, 47, 54, 0.26) 0%,
-      rgba(72, 47, 54, 0.16) 34%,
-      rgba(72, 47, 54, 0.05) 58%,
-      transparent 80%
-  );
-  transform: translate(-50%, -50%);
-  opacity: 0.84;
-}
-
 .scriptText {
   position: relative;
   margin: 0;
